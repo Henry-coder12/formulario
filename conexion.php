@@ -1,7 +1,8 @@
 <?php
 $servername = "localhost"; 
-$username = "usuario";   
-$dbname = "nombre_base";    
+$username = "root";
+$password = "root";
+$dbname = "reclamos_db";    
 
 // Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
