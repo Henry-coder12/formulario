@@ -1,14 +1,14 @@
 <?php
-$servername = "localhost"; 
-$username = "root";
-$password = "root";
-$dbname = "reclamos_db";    
+$servername = "localhost";
+$username = "root"; // Cambiar si usas otro usuario
+$password = "root"; // Cambiar si usas una contraseÃ±a
+$dbname = "reclamos_db";
 
-// Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar la conexión
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("Error de conexiÃ³n: " . $conn->connect_error);
+} else {
+    echo "ConexiÃ³n exitosa.";
 }
 ?>
