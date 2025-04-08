@@ -7,9 +7,14 @@
 </head>
 <body>
     <h1>Formulario de Reclamo</h1>
-    <form id="formulario" action="guardar_reclamo.php" method="POST">
+    <form id="formulario" action="guardar_reclamo.php" method="POST"> 
         <label for="tipo_documento">Tipo de Documento:</label>
-        <input type="text" id="tipo_documento" name="tipo_documento" required><br><br>
+        <select id="tipo_documento" name="tipo_documento" required>
+            <option value="" disabled selected hidden>Selecciona</option>
+            <option value="DNI">DNI</option>
+            <option value="CE">CE</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select><br><br>
 
         <label for="numero_documento">Número de Documento:</label>
         <input type="text" id="numero_documento" name="numero_documento" required><br><br>
@@ -21,10 +26,10 @@
         <input type="text" id="apellido_paterno" name="apellido_paterno" required><br><br>
 
         <label for="apellido_materno">Apellido Materno:</label>
-        <input type="text" id="apellido_materno" name="apellido_materno" required><br><br>
+        <input type="text" id="apellido_materno" name="apellido_materno"><br><br>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email"><br><br>
 
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion"><br><br>
@@ -45,13 +50,22 @@
         <input type="text" id="padre_madre" name="padre_madre"><br><br>
 
         <label for="bien_contratado">Bien Contratado:</label>
-        <input type="text" id="bien_contratado" name="bien_contratado"><br><br>
+        <select id="bien_contratado" name="bien_contratado" required>
+            <option value="" disabled selected hidden>Selecciona</option>
+            <option value="pasajes">Pasajes</option>
+            <option value="encomiendas">Encomiendas</option>
+        </select><br><br>
 
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br><br>
 
         <label for="tipo_comprobante">Tipo de Comprobante:</label>
-        <input type="text" id="tipo_comprobante" name="tipo_comprobante"><br><br>
+        <select id="tipo_comprobante" name="tipo_comprobante" required>
+            <option value="" disabled selected hidden>Selecciona</option>
+            <option>Boleta de Venta</option>
+            <option>Factura</option>
+            <option>Guía</option>
+        </select><br><br>
 
         <label for="serie_comprobante">Serie de Comprobante:</label>
         <input type="text" id="serie_comprobante" name="serie_comprobante"><br><br>
@@ -59,8 +73,21 @@
         <label for="numero_comprobante">Número de Comprobante:</label>
         <input type="text" id="numero_comprobante" name="numero_comprobante"><br><br>
 
+        <label for="monto">Monto:</label>
+        <input type="number" id="monto" name="monto" step="0.01"><br><br>
+
         <label for="reclamo">Reclamo:</label>
         <textarea id="reclamo" name="reclamo" rows="4" cols="50"></textarea><br><br>
+
+        <label for="tipo_accion">Tipo de Acción:</label>
+        <select id="tipo_accion" name="tipo_accion" required>
+            <option value="" disabled selected hidden>Selecciona</option>
+            <option>Reclamo</option>
+            <option>Queja</option>
+        </select><br><br>
+
+        <label for="detalle">Detalle:</label>
+        <textarea id="detalle" name="detalle" rows="4" cols="50" required></textarea><br><br>
 
         <button type="submit">Enviar Reclamo</button>
     </form>
