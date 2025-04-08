@@ -65,14 +65,10 @@
     button:hover {
       background-color: #0056b3;
     }
-
-    label {
-      display: none;
-    }
   </style>
 </head>
 <body>
-  <form id="formulario">
+  <form id="formulario" action="guardar_reclamo.php" method="POST">
     <!-- Sección 1 -->
     <h3>1. Identificación del consumidor reclamante</h3>
 
@@ -84,11 +80,6 @@
           <option>CE</option>
           <option>Pasaporte</option>
         </select>
-
-
-
-
-        
       </div>
       <div class="form-group">
         <input type="text" name="numero_documento" placeholder="Número de documento" required>
@@ -142,169 +133,38 @@
 
     <div class="form-row">
       <div class="form-group">
-        <!--<select name="bien_contratado" required>
-          <option value="" disabled selected hidden>Bien contratado</option>
-          <option>Servicio</option>
-          <option>Producto</option>
-        </select>-->
-        <select id="bienSelect" onchange="cambiarOpciones()">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="pasajes">Pasajes</option>
-            <option value="encomiendas">Encomiendas</option>
+        <select id="bienSelect" name="bien_contratado" onchange="cambiarOpciones()" required>
+          <option value="" disabled selected hidden>Selecciona una opción</option>
+          <option value="pasajes">Pasajes</option>
+          <option value="encomiendas">Encomiendas</option>
         </select>
       </div>
       <div class="form-group">
-        <!--<input type="text" name="descripcion" placeholder="Descripción">-->
-        <select id="descripcionServicio" >
-            
-            <option value="" disabled selected>Descripción:</option>
-            <option value="001">ACCIDENTE EN CARRETERA</option>
-            <option value="002">ACTUALIZACION DE DATOS EN EL SISTEMA</option>
-            <option value="003">AIRE ACONDICIONADO / CALEFACCION</option>
-            <option value="004">ANULACION DE COMPRA POR INTERNET</option>
-            <option value="005">ASIENTO</option>
-            <option value="006">AUDIFONOS</option>
-            <option value="007">BUS LLEGO CON DEMORA</option>
-            <option value="008">BUS MALOGRADO</option>
-            <option value="009">BUS SALIO CON DEMORA</option>
-            <option value="010">CAMBIO BOLETA A FACTURA</option>
-            <option value="011">CAMBIO DE ASIENTO S/AUTORIZACION</option>
-            <option value="012">CAMBIO DE FECHA DE VIAJE</option>
-            <option value="013">CAMBIO DE HORARIO SIN AUTORIZACIÓN</option>
-            <option value="014">CAMBIO DE NOMBRE</option>
-            <option value="015">CAMBIO DE RUTA</option>
-            <option value="016">CAMBIO DE SERVICIO</option>
-            <option value="017">CINTURON DE SEGURIDAD</option>
-            <option value="018">COMIDA ABORDO</option>
-            <option value="019">COMPRA DE BOLETOS WEB - ERROR EN EMISION DE DATOS</option>
-            <option value="020">COMPRA DE BOLETOS WEB - ERROR EN TARIFA</option>
-            <option value="021">CONDUCCION DE PILOTO</option>
-            <option value="022">CONTENIDO DE EQUIPAJE LLEGO EN MAL ESTADO</option>
-            <option value="023">COPIA DE BOLETO ELECTRONICO</option>
-            <option value="024">CORRECCION DE DATOS</option>
-            <option value="025">DEMORA EN ATENCION DE COUNTER DE AGENCIA Y/O MODULO</option>
-            <option value="026">DEMORA EN LA ATENCION DE CALL CENTER</option>
-            <option value="027">DEVOLUCION DE DINERO - PARO</option>
-            <option value="028">DEVOLUCION DE DINERO</option>
-            <option value="029">DEVOLUCION DE DINERO - LLUVIAS/HUAICOS</option>
-            <option value="030">DEVOLUCION DE DINERO - VIAJES MAR A JUL 2020 - PANDEMIA COVID-19</option>
-            <option value="031">DOBLE CARGO POR COMPRA EN AGENCIA Y/O MODULO</option>
-            <option value="032">DOBLE CARGO POR COMPRA VIA INTERNET</option>
-            <option value="033">EFECTO NO CONSIDERADO EQUIPAJE</option>
-            <option value="034">EQUIPAJE DAÑADO</option>
-            <option value="035">EQUIPAJE FUE ENVIADO A OTRO DESTINO</option>
-            <option value="036">EQUIPAJE NO FUE EMBARCADO EN BUS</option>
-            <option value="037">FALTANTE DE CONTENIDO EN EQUIPAJE</option>
-            <option value="038">GIFT CARD</option>
-            <option value="039">INCUMPIMIENTO PROTOCOLO COVID</option>
-            <option value="040">INCUMPLIMIENTO EMBARQUE/DESEMBARQUE</option>
-            <option value="041">INFORMACION INCORRECTA SAC</option>
-            <option value="042">INFORMACION INCORRECTA COUNTER AGENCIAS Y MODULOS</option>
-            <option value="043">INFORMACION INCORRECTA TRIPULANTE REMOTO</option>
-            <option value="044">INFORMACIÓN INCORRECTA FONOBUS</option>
-            <option value="045">MANTAS Y ALMOHADAS</option>
-            <option value="046">NO LLEGÓ BOLETO DE VIAJE</option>
-            <option value="047">NO SE GENERÓ BOLETO DE VIAJE</option>
-            <option value="048">OTROS</option>
-            <option value="049">PANTALLAS TACTILES</option>
-            <option value="050">PARADAS INTERMEDIAS NO ESTABLECIDAS</option>
-            <option value="051">PARO EN CARRETERA</option>
-            <option value="052">PAX NO ES INFORMADO OPORTUNAMENTE</option>
-            <option value="053">PAX NO RECIBIO ALIMENTACION</option>
-            <option value="054">PAX VIAJA EN EL SERVICIO QUE NO CORRESPONDE</option>
-            <option value="055">PAX VIAJA EN RUTA QUE NO CORRESPONDE</option>
-            <option value="056">PELICULAS ABORDO</option>
-            <option value="057">PERDIDA DE EQUIPAJE EN CUSTODIA</option>
-            <option value="058">PERDIDA EQUIPAJE - OBJETOS EN SALON BUS</option>
-            <option value="059">PERDIDA EQUIPAJE EN BODEGA</option>
-            <option value="060">POSTERGACION</option>
-            <option value="061">POSTERGACION - COVID-19</option>
-            <option value="062">POSTERGACION - PARO</option>
-            <option value="063">PROCESO INCORECTO AUXILIAR DE EQUIPAJE</option>
-            <option value="064">PROCESO INCORRECTO COUNTER AGENCIAS Y/O</option>
-            <option value="065">PROCESO INCORRECTO FONOBUS</option>
-            <option value="066">PROCESO INCORRECTO PERSONAL DE EMBARQUE</option>
-            <option value="067">PROCESO INCORRECTO PILOTO</option>
-            <option value="068">PROCESO INCORRECTO TRIPULANTE</option>
-            <option value="069">PROG. PAX FRECUENTE</option>
-            <option value="070">QUEJAS VARIAS SOBRE EL VIAJE</option>
-            <option value="071">REGENERACION DE COMPRA</option>
-            <option value="072">REPROGRAMACION DE VIAJE</option>
-            <option value="073">ROBO DE EQUIPAJE EN BODEGA</option>
-            <option value="074">ROBO EN AGENCIA</option>
-            <option value="075">S.S.H.H. - BUS</option>
-            <option value="076">SERVICIO DE TAXI</option>
-            <option value="077">TARIFAS</option>
-            <option value="078">TOMACORRIENTES</option>
-            <option value="079">TRANSBORDO</option>
-            <option value="080">TRATO COUNTER DE AGENCIA Y/O MODULO</option>
-            <option value="081">TRATO PERSONAL DE SEGURIDAD</option>
-            <option value="082">TRATO AUXILIAR DE EQUIPAJE</option>
-            <option value="083">TRATO DE ADMINISTRADOR</option>
-            <option value="084">TRATO FONOBUS</option>
-            <option value="085">TRATO PERSONAL DE EMBAQUE Y/O DESEMBARQUE</option>
-            <option value="086">TRATO PILOTOS</option>
-            <option value="087">TRATO TRIPULANTE</option>
-            <option value="088">VALIDACION DE COMPROBANTE - SUNAT</option>
-            <option value="089">VENTA DE ASIENTO DUPLICADO</option>
-            <option value="090">WI FI</option>
-            <!-- ... puedes seguir agregando más opciones -->
-          </select>
-        
-          <select id="descripcionProducto" style="display:none;">
-        
-            <option value="" disabled selected>Descripción:</option>
-            <option value="092">CANAL DIGITAL</option>
-            <option value="093">DEMORA EN LA ATENCION - CONTER CARGO</option>
-            <option value="094">DETERIORO DE MERCADERÍA</option>
-            <option value="095">DOBLE CARGO POR PAGO EN AGENCIA</option>
-            <option value="096">DUPLICADO DE FACTURA /BOLETA</option>
-            <option value="097">ENCOMIENDA FUE ENVIADA A OTRO DESTINO</option>
-            <option value="098">ENTREGA CODIFICADA</option>
-            <option value="099">ENTREGA DE MERCADERÍA A CONSIGNADO INCORRECTO</option>
-            <option value="100">FALTANTE EN CONTENIDO</option>
-            <option value="101">FELICITACIONES</option>
-            <option value="102">INCAUTACIÓN DE MERCADERÍA</option>
-            <option value="103">INFORMACION INCORRECTA CALL CENTER</option>
-            <option value="104">INFORMACION INCORRECTA COUNTER - CARGO</option>
-            <option value="105">NO GENERO COMPROBANTE</option>
-            <option value="106">OTROS</option>
-            <option value="107">PERDIDA DE MERCADERÍA</option>
-            <option value="108">PROCESO INCORRECTO AUXILIAR CARGO</option>
-            <option value="109">PROCESO INCORRECTO COUNTER CARGO</option>
-            <option value="110">RETRASO EN LA ENTREGA DE MERCADERÍA</option>
-            <option value="111">ROBO DE MERCADERÍA</option>
-            <option value="112">SUGERENCIAS</option>
-            <option value="113">TARIFAS</option>
-            <option value="114">TELEVENTAS</option>
-            <option value="115">TRATO - COUNTER CARGO</option>
-            <option value="116">TRATO PERSONAL DE CARGO</option>
-            <option value="117">TRATO PERSONAL DE SEGURIDAD</option>
-            <option value="118">VALIDACION DE COMPROBANTE - SUNAT</option>
-            <option value="119">VIOLACIONES DE CARGA</option>
-            <option value="091">ABANDONO LEGAL</option>
-            <!-- ... puedes seguir agregando más opciones -->
-          </select>
+        <select id="descripcionServicio" name="descripcion" style="display:none;">
+          <option value="" disabled selected hidden>Descripción:</option>
+          <option value="001">ACCIDENTE EN CARRETERA</option>
+          <option value="002">ACTUALIZACION DE DATOS EN EL SISTEMA</option>
+          <option value="003">AIRE ACONDICIONADO / CALEFACCION</option>
+        </select>
+
+        <select id="descripcionProducto" name="descripcion" style="display:none;">
+          <option value="" disabled selected hidden>Descripción:</option>
+          <option value="092">CANAL DIGITAL</option>
+          <option value="093">DEMORA EN LA ATENCION - CONTER CARGO</option>
+          <option value="094">DETERIORO DE MERCADERÍA</option>
+        </select>
       </div>
     </div>
+
     <div class="form-row-3">
-        <div class="form-group">
+      <div class="form-group">
         <select name="tipo_comprobante" required>
-            <option value="" disabled selected >Tipo de comprobante</option>
-            
-            
-            <option>Boleta de Venta</option>
-            <option>Factura</option>
-            <option>Guia</option>
-          </select>
-
-
-     
+          <option value="" disabled selected hidden>Tipo de comprobante</option>
+          <option>Boleta de Venta</option>
+          <option>Factura</option>
+          <option>Guía</option>
+        </select>
       </div>
-
-
-
-
       <div class="form-group">
         <input type="text" name="serie_comprobante" placeholder="Serie del comprobante">
       </div>
@@ -316,7 +176,8 @@
     <div class="form-row">
       <div class="form-group">
         <input type="text" name="monto" placeholder="Monto referencial">
-      </div><div class="form-group">
+      </div>
+      <div class="form-group">
         <input type="text" name="reclamo" placeholder="¿Qué desea obtener con este reclamo?">
       </div>
     </div>
@@ -340,16 +201,50 @@
       </div>
     </div>
 
-    <button type="submit">Enviar</button>
+    <button type="submit" id="btnEnviar" name="btnEnviar">Enviar Reclamo</button>
   </form>
-</body>
-</html>
 
-
-<script>
+  <script>
     function cambiarOpciones() {
       const valor = document.getElementById("bienSelect").value;
-      document.getElementById("descripcionServicio").style.display = (valor === "pasajes") ? "inline" : "none";
-      document.getElementById("descripcionProducto").style.display = (valor === "encomiendas") ? "inline" : "none";
+      const descripcionServicio = document.getElementById("descripcionServicio");
+      const descripcionProducto = document.getElementById("descripcionProducto");
+
+      // Muestra el selector correspondiente y oculta el otro
+      if (valor === "pasajes") {
+        descripcionServicio.style.display = "block";
+        descripcionServicio.required = true;
+
+        descripcionProducto.style.display = "none";
+        descripcionProducto.required = false;
+      } else if (valor === "encomiendas") {
+        descripcionProducto.style.display = "block";
+        descripcionProducto.required = true;
+
+        descripcionServicio.style.display = "none";
+        descripcionServicio.required = false;
+      } else {
+        descripcionServicio.style.display = "none";
+        descripcionServicio.required = false;
+        descripcionProducto.style.display = "none";
+        descripcionProducto.required = false;
+      }
     }
+
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+      const bienSelect = document.getElementById("bienSelect").value;
+      const descripcionServicio = document.getElementById("descripcionServicio");
+      const descripcionProducto = document.getElementById("descripcionProducto");
+
+      // Verifica si el bien contratado tiene una descripción seleccionada
+      if (bienSelect === "pasajes" && !descripcionServicio.value) {
+        alert("Por favor, selecciona una descripción para pasajes.");
+        event.preventDefault();
+      } else if (bienSelect === "encomiendas" && !descripcionProducto.value) {
+        alert("Por favor, selecciona una descripción para encomiendas.");
+        event.preventDefault();
+      }
+    });
   </script>
+</body>
+</html>
