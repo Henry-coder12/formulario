@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reclamos</title>
+    <style>
+        .alert {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Reclamos</h1>
+
+    <form id="reclamoForm">
+        <label for="tipo_documento">Tipo de Documento:</label>
+        <input type="text" id="tipo_documento" name="tipo_documento" required><br>
+
+        <label for="numero_documento">Número de Documento:</label>
+        <input type="text" id="numero_documento" name="numero_documento" required><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="apellido_paterno">Apellido Paterno:</label>
+        <input type="text" id="apellido_paterno" name="apellido_paterno" required><br>
+
+        <label for="apellido_materno">Apellido Materno:</label>
+        <input type="text" id="apellido_materno" name="apellido_materno" required><br>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="descripcion">Descripción del Reclamo:</label>
+        <textarea id="descripcion" name="descripcion" required></textarea><br>
+
+        <!-- Añade todos los demás campos del formulario aquí -->
+
+        <button type="submit">Enviar Reclamo</button>
+    </form>
+
+    <div id="alert" class="alert"></div>
+
+    <script>
+        document.getElementById('reclamoForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Evitar el envío tradicional del formulario
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch('guardar_reclamo.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const alert = document.getElementById('alert');
+                if (data.success) {
+                    alert.className = 'alert success';
+                    alert.textContent = data.message;
+                    form.reset(); // Limpiar el formulario después del envío exitoso
+                } else {
+                    alert.className = 'alert error';
+                    alert.textContent = data.message;
+                }
+            })
+            .catch(error => {
+                const alert = document.getElementById('alert');
+                alert.className = 'alert error';
+                alert.textContent = 'Ocurrió un error inesperado al enviar el formulario.';
+            });
+        });
+    </script>
+</body>
+</html>
