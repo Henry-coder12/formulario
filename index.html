@@ -210,7 +210,7 @@
       const descripcionServicio = document.getElementById("descripcionServicio");
       const descripcionProducto = document.getElementById("descripcionProducto");
 
-      // Muestra el selector correspondiente y oculta el otro
+
       if (valor === "pasajes") {
         descripcionServicio.style.display = "block";
         descripcionServicio.required = true;
@@ -236,7 +236,7 @@
       const descripcionServicio = document.getElementById("descripcionServicio");
       const descripcionProducto = document.getElementById("descripcionProducto");
 
-      // Verifica si el bien contratado tiene una descripción seleccionada
+     
       if (bienSelect === "pasajes" && !descripcionServicio.value) {
         alert("Por favor, selecciona una descripción para pasajes.");
         event.preventDefault();
